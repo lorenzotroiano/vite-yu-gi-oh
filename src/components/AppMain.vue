@@ -31,7 +31,7 @@ export default {
         </section>
 
 
-        <Card v-for="card in store.cardList" />
+        <Card v-for="card in store.cardList" :details="card" />
     </main>
 </template>
 
