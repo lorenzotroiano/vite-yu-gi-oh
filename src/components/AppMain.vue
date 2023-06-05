@@ -30,8 +30,11 @@ export default {
             </select>
         </section>
 
-
-        <Card v-for="card in store.cardList" :details="card" />
+        <div class="flex">
+            <div v-for="(card, index) in store.cardList" :key="index">
+                <Card :details="card" />
+            </div>
+        </div>
     </main>
 </template>
 
@@ -40,7 +43,7 @@ export default {
 
 main {
     background-color: $colorePrimario;
-    min-height: 500px;
+    // min-height: 500px;
     padding: 20px;
 
     section {
@@ -48,6 +51,16 @@ main {
         margin: 0 auto;
     }
 
+    .flex {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: calc(100%/2);
+        margin: 0 auto;
 
+        background-color: white;
+    }
 }
 </style>

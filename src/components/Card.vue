@@ -2,37 +2,47 @@
 
 export default {
     name: "Card",
-    props: Object
+    props: {
+        details: Object
+    }
 }
 
 </script>
 
 <template>
-    <section class="flex-cards">
+    <section class="cards">
         <div>
-            <img src="https://images.ygoprodeck.com/images/cards_cropped/89185742.jpg" alt="">
+            <img :src="details.card_images[0].image_url" alt="">
 
-            <h5>Lorenzo</h5>
-            <span>Umano</span>
+            <h5>{{ details.name }}</h5>
+            <span>{{ details.archetype }}</span>
         </div>
 
     </section>
 </template>
 
 <style lang="scss" scoped>
-.flex-cards {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    gap: 10px;
+@use '../styles/partials/variables.scss' as *;
+
+.cards {
+
+
+    width: 120px;
+
 
     div {
         text-align: center;
+        background-color: $colorePrimario;
+        height: 250px;
+        margin: 10px 0;
 
         img {
             height: 150px;
             width: 120px;
+        }
+
+        h5 {
+            margin: 10px 0;
         }
     }
 
