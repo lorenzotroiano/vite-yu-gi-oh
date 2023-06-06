@@ -19,6 +19,9 @@ export default {
 </script>
 
 <template>
+    <div class="banner">
+        <span>Found {{ store.cardList.length }} cards</span>
+    </div>
     <div class="listacards">
 
 
@@ -33,6 +36,14 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/partials/variables.scss' as *;
+
+.banner {
+    color: white;
+    font-weight: bold;
+    background-color: #212529;
+    padding: 20px;
+    margin-top: 30px;
+}
 
 .listacards {
     background-color: $colorePrimario;
