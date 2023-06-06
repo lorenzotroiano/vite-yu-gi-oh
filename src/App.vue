@@ -3,11 +3,13 @@ import { store } from './store.js';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSelect from './components/AppSelect.vue';
 
 export default {
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppSelect
   },
   data() {
     return {
@@ -36,9 +38,20 @@ export default {
 <template>
   <AppHeader />
 
-  <AppMain />
+  <main>
+    <AppSelect />
+
+    <AppMain />
+  </main>
 </template>
 
 <style lang="scss">
-@use './styles/general.scss'
+@use './styles/general.scss' as *;
+@use './styles/partials/variables.scss' as *;
+
+main {
+  background-color: $colorePrimario;
+  // min-height: 500px;
+  padding: 20px;
+}
 </style>

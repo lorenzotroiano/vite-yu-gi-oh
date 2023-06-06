@@ -19,37 +19,27 @@ export default {
 </script>
 
 <template>
-    <main>
+    <div class="listacards">
 
-        <section>
-            <select name="cards" id="cards">
-                <option value="alien">Alien</option>
-                <option value="zombie">Zombie</option>
-                <option value="human">Human</option>
-                <option value="hello">Hello</option>
-            </select>
-        </section>
+
 
         <div class="flex">
             <div v-for="(card, index) in store.cardList" :key="index">
                 <Card :details="card" />
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/variables.scss' as *;
 
-main {
+.listacards {
     background-color: $colorePrimario;
     // min-height: 500px;
     padding: 20px;
 
-    section {
-        width: 90%;
-        margin: 0 auto;
-    }
+
 
     .flex {
         display: flex;

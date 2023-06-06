@@ -15,7 +15,8 @@ export default {
             <img :src="details.card_images[0].image_url" alt="">
 
             <h5>{{ details.name }}</h5>
-            <span>{{ details.archetype }}</span>
+            <span v-if="details.archetype">{{ details.archetype }}</span>
+            <span v-else="">Non definito</span>
         </div>
 
     </section>
