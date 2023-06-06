@@ -1,6 +1,8 @@
 <script >
 import { store } from './../store.js';
 
+import axios from 'axios';
+
 
 
 export default {
@@ -10,9 +12,24 @@ export default {
         return {
             store,
         }
+    },
+
+    methods: {
+        getOption() {
+            axios.get(store.newApi)
+                .then(res => {
+                    store.optionList = res.data;
+
+                    console.log(store.optionList);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+    },
+    created() {
+        this.getOption();
     }
-
-
 }
 
 </script>
@@ -20,7 +37,7 @@ export default {
 <template>
     <section>
         <select name="cards" id="cards">
-            <option v-for="option in store.optionList" value="alien">{{ option.archetype }}</option>
+            <option v-for="option in store.optionList" value="alien">{{ option.archetype_name }}</option>
 
         </select>
     </section>

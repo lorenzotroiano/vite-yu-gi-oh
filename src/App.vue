@@ -22,7 +22,7 @@ export default {
         .then(res => {
           store.cardList = res.data.data;
 
-          console.log(store.cardList);
+
         })
         .catch(err => {
           console.log(err);
