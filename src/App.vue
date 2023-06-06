@@ -18,7 +18,13 @@ export default {
   },
   methods: {
     getCards() {
-      axios.get(store.apiURL)
+
+      let myURL = store.apiURL;
+
+      if (store.searchOption !== "") {
+        myURL += `&archetype=${store.searchOption}`
+      }
+      axios.get(myURL)
         .then(res => {
           store.cardList = res.data.data;
 
@@ -27,10 +33,12 @@ export default {
         .catch(err => {
           console.log(err);
         })
-    }
+    },
+
   },
   created() {
     this.getCards();
+
   }
 }
 </script>
@@ -39,7 +47,7 @@ export default {
   <AppHeader />
 
   <main>
-    <AppSelect />
+    <AppSelect @search="getCards" />
 
     <AppMain />
   </main>

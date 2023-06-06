@@ -20,7 +20,7 @@ export default {
                 .then(res => {
                     store.optionList = res.data;
 
-                    console.log(store.optionList);
+                    // console.log(store.optionList);
                 })
                 .catch(err => {
                     console.log(err);
@@ -36,8 +36,10 @@ export default {
 
 <template>
     <section>
-        <select name="cards" id="cards">
-            <option v-for="option in store.optionList" value="alien">{{ option.archetype_name }}</option>
+        <select name="cards" id="cards" @change="$emit('search')" v-model="store.searchOption">
+            <option v-for="option in store.optionList" :value="option.archetype_name">{{
+                option.archetype_name }}
+            </option>
 
         </select>
     </section>
